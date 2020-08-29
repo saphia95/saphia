@@ -6,6 +6,7 @@
 from os.path import split
 import pandas as pd
 import datetime
+import requests
 
 pd.set_option('display.width', 200)
 
@@ -46,6 +47,11 @@ def clean_data(data):
              7: '1/trimestre', 8: 'Less', 9: 'Never'}
     data.loc[:, 'Frequency'] = data['Frequency'].map(drows)
     return data
+
+
+def try_me(gtin):
+    r = requests.get("https://world.openfoodfacts.org/api/v0/product/{gtin}.json")
+    return r.json()["product"]["product"]
 
 
 if __name__ == '__main__':
