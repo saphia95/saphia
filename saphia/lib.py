@@ -50,7 +50,7 @@ def clean_data(data):
 
 
 def try_me(gtin):
-    r = requests.get("https://world.openfoodfacts.org/api/v0/product/{gtin}.json")
+    r = requests.get(f"https://world.openfoodfacts.org/api/v0/product/{gtin}.json")
     return r.json()["product"]["product_name_fr"]
 
 
