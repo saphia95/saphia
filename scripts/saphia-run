@@ -8,7 +8,7 @@ import pandas as pd
 
 # Import from saphia
 import saphia
-from saphia.lib import clean_data
+from saphia.lib import clean_data, try_me
 
 if __name__ == '__main__':
     usage = '%(prog)s'
@@ -25,3 +25,6 @@ if __name__ == '__main__':
     res.to_csv('out.csv', index=False)
     print('==> out.csv MADE ')
     print('    shape is {}'.format(res.shape))
+
+    product = try_me("5449000000996")
+    print(product)
